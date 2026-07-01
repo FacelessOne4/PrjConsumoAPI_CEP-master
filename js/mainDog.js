@@ -2,7 +2,7 @@ document.getElementById("dogForm").addEventListener("submit", function (event) {
  
     event.preventDefault();
  
-    const dog = document.getElementById("dog").value.trim().toLowerCase();
+    const dog = document.getElementById("dog").value.trim().toLowerCase(); // !
  
     if (dog === "") {
 
@@ -14,11 +14,11 @@ document.getElementById("dogForm").addEventListener("submit", function (event) {
  
     fetch(`https://dog.ceo/api/breed/${dog}/images`)
 
-        .then(response => response.json())
+        .then(response => response.json()) // !
 
         .then(data => {
  
-            if (data.status === "error") {
+            if (data.status === "error") { 
 
                 document.getElementById("resultado").innerHTML = "Raça não encontrada.";
 
@@ -28,13 +28,13 @@ document.getElementById("dogForm").addEventListener("submit", function (event) {
  
             let html = "";
  
-            data.message.forEach(imagem => {
+            data.message.forEach(imagem => { // !
 
                 html += `<img src="${imagem}" width="200">`;
 
             });
  
-            document.getElementById("resultado").innerHTML = html;
+            document.getElementById("resultado").innerHTML = html; // !
 
         })
 
